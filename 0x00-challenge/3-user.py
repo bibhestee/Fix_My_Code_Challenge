@@ -54,7 +54,11 @@ class User():
             return False
         if self.__password is None:
             return False
-        return hashlib.md5(pwd.encode()).hexdigest().upper() is self.__password
+        if hashlib.md5(pwd.encode()).hexdigest().upper() == self.__password:
+            return True
+        else:
+            return False
+
 
 if __name__ == '__main__':
     print("Test User")
